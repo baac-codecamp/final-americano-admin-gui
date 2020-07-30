@@ -1,0 +1,67 @@
+{
+  "profilename": "Rungtiwa Inha",
+  "friendProfile": [
+    {
+      "id": 1,
+      "name": "Friend Name1",
+      "isMyFriend": true
+    },
+    {
+      "id": 2,
+      "name": "Friend Name2",
+      "isMyFriend": true
+    },
+    {
+      "id": 3,
+      "name": "Friend Name3",
+      "isMyFriend": true
+    },
+    {
+      "id": 4,
+      "name": "Friend Name4",
+      "isMyFriend": true
+    },
+    {
+      "id": 5,
+      "name": "Friend Name5",
+      "isMyFriend": true
+    },
+    {
+      "id": 6,
+      "name": "Friend Name6",
+      "isMyFriend": true
+    }
+  ],
+  "friendRequest": [
+    {
+      "id": 1,
+      "name": "Friend Request Name1",
+      "isMyFriend": false
+    },
+    {
+      "id": 2,
+      "name": "Friend Request Name2",
+      "isMyFriend": false
+    },
+    {
+      "id": 3,
+      "name": "Friend Request Name3",
+      "isMyFriend": false
+    },
+    {
+      "id": 4,
+      "name": "Friend Request Name4",
+      "isMyFriend": false
+    },
+    {
+      "id": 5,
+      "name": "Friend Request Name5",
+      "isMyFriend": false
+    },
+    {
+      "id": 6,
+      "name": "Friend Request Name6",
+      "isMyFriend": false
+    }
+  ]
+}

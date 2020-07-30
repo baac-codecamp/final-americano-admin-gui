@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Noon",
+        "message": "message1234",
+        "isProfile": false
+    },
+    {
+        "id": 2,
+        "name": "Noon2",
+        "message": "message1234asdf",
+        "isProfile": false
+    },
+    {
+        "id": 3,
+        "name": "Noon3",
+        "message": "message1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwer",
+        "isProfile": true
+    },
+    {
+        "id": 4,
+        "name": "Noon4",
+        "message": "message1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwermessage1234qweqwrwer",
+        "isProfile": false
+    }
+]
