@@ -1,5 +1,6 @@
 import React from "react";
 import HeaderPage from "./Header";
+import BarMenu from "./BarMenu";
 import ListLink from "./ListLink";
 import data from "../Data/Profile.json";
 import { Link } from "react-router-dom";
@@ -17,7 +18,6 @@ class ChangePasswordPage extends React.Component {
     return (
       <div>
         <Layout className="layout">
-          <HeaderPage />
           <Content
             className="site-layout"
             style={{ padding: "0 50px", marginTop: 64 }}
@@ -71,7 +71,11 @@ class ChangePasswordPage extends React.Component {
                   </Form.Item>
                   <Form.Item {...tailLayout}>
                     <Button type="primary" style={{ marginRight: "10px" }}>
-                      <Link to="/">เปลี่ยนรหัสผ่าน</Link>
+                      {/* <Link to="/"></Link> */}
+                      เปลี่ยนรหัสผ่าน
+                    </Button>
+                    <Button  style={{ marginRight: "10px" }}>
+                      <Link to="/">ย้อนกลับ</Link>
                     </Button>
                   </Form.Item>
                 </Form>
