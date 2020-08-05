@@ -1,5 +1,4 @@
 import React from 'react';
-import FeedPage from './Component/FeedPage';
 import LoginPage from './Component/LoginPage';
 import SignupPage from './Component/SignupPage';
 import ChangePasswordPage from './Component/ChangePasswordPage'
