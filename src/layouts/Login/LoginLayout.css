@@ -1,0 +1,17 @@
+.login-layout {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.login-main {
+  height: 100vh;
+}
+
+.login-card {
+  width: 500px !important;
+  height: 300px;
+  border-radius: 20px !important;
+}
+.ant-card-head-title {
+  text-align: center;
+}
