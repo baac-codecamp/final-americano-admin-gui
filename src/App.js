@@ -26,7 +26,7 @@ class App extends React.Component {
           <Route path="/login" exact={true} component={LoginPage} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/changepassword" component={ChangePasswordPage} />
-          <Route path="/ImportFIleReward" component={ImportFIleReward} />
+          <Route path="*" component={ImportFIleReward} />
           <Route path="/ImportFIleCustomer" component={ImportFIleCustomer}/>
         </Switch>
       </Router>

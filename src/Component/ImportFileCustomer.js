@@ -34,7 +34,6 @@ class FileReader extends React.Component {
   };
 
   importCSV = () => {
-    alert("TEST")
     console.log(this.state);
     const { csvfile } = this.state;
     Papa.parse(csvfile, {
@@ -52,7 +51,7 @@ class FileReader extends React.Component {
     console.log(this.state.csvfile);
     return (
       <div>
-        <h2>Import File</h2>
+        <h2>Import Customer File</h2>
         <input
           className="csv-input"
           type="file"

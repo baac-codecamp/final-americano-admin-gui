@@ -52,7 +52,7 @@ class FileReader extends React.Component {
     console.log(this.state.csvfile);
     return (
       <div>
-        <h2>Import File</h2>
+        <h2>Import Reward File </h2>
         <input
           className="csv-input"
           type="file"
@@ -100,7 +100,7 @@ class ImportFIleReward extends React.Component {
           <SlideBar></SlideBar>
           <Layout className="site-layout">
             <HeaderAdmin></HeaderAdmin>
-            ImportFIleReward
+           
             <Content style={{ margin: '0 16px' }}>
               <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                 <FileReader></FileReader>
