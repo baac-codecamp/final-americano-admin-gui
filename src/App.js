@@ -3,7 +3,9 @@ import LoginPage from './Component/LoginPage';
 import SignupPage from './Component/SignupPage';
 import ChangePasswordPage from './Component/ChangePasswordPage'
 import AdminPage from './Component/AdminPage'
-
+import navbar from './Component/nav'
+import ImportFIleReward from './Component/ImportFIleReward'
+import ImportFIleCustomer from './Component/ImportFileCustomer'
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,10 +23,11 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" exact={true} component={LoginPage} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/changepassword" component={ChangePasswordPage} />
-          <Route path="/" component={AdminPage} />
+          <Route path="/ImportFIleReward" component={ImportFIleReward} />
+          <Route path="/ImportFIleCustomer" component={ImportFIleCustomer}/>
         </Switch>
       </Router>
     );

@@ -176,7 +176,7 @@ nav.sidebar :global(.navbar-brand) :global(.glyphicon) {
 
 
 /*Remove rounded coners*/
-nav.sidebar.:global(navbar) {
+nav.sidebar:global(navbar) {
   border-radius: 0px;
 }
 
@@ -194,7 +194,7 @@ nav.sidebar {
 
 
   /*Center Brand*/
-  nav.sidebar.:global(navbar).sidebar>.container :global(.navbar-brand), :global(.navbar)>:global(.container-fluid) :global(.navbar-brand)
+  nav.sidebar:global(navbar).sidebar>.container :global(.navbar-brand), :global(.navbar)>:global(.container-fluid) :global(.navbar-brand)
       {
       margin-left: 0px;
   }
@@ -293,4 +293,29 @@ nav:hover :global(.forAnimate) {
 
 section {
   padding-left: 15px;
+}
+
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.container{
+  background-image: url(../images/logo1.png);
 }

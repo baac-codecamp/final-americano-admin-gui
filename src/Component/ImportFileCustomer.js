@@ -71,7 +71,7 @@ class FileReader extends React.Component {
 }
 
 
-class AdminPage extends React.Component {
+class ImportFIleCustomer extends React.Component {
   state = {
     collapsed: false,
   };
@@ -96,11 +96,11 @@ class AdminPage extends React.Component {
 
   render() {
     return (
-      <div>
         <Layout style={{ minHeight: '100vh' }}>
           <SlideBar></SlideBar>
           <Layout className="site-layout">
             <HeaderAdmin></HeaderAdmin>
+            ImportFIleCustomer
             <Content style={{ margin: '0 16px' }}>
               <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                 <FileReader></FileReader>
@@ -109,10 +109,9 @@ class AdminPage extends React.Component {
             <Footer style={{ textAlign: 'center' }}>BAAC©2020</Footer>
           </Layout>
         </Layout>
-      </div>
     );
   }
 }
 
 
-export default AdminPage;
+export default ImportFIleCustomer;

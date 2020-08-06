@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Form, Input, Button, Row, Col, Alert } from "antd";
 import { DoubleRightOutlined } from "@ant-design/icons";
+import logo from "../images/logo1.png";
 
 class Login extends React.Component {
   constructor() {
@@ -24,7 +25,7 @@ class Login extends React.Component {
       .post(`https://americano-api.topwork.asia/api/loginUser`, user)
       .then((res) => {
         this.setAlert(res.data.response_message, "success");
-        window.location.replace("/");
+        window.location.replace("/ImportFileReward");
         console.log(res.data.response_data)
         localStorage.setItem("user", JSON.stringify(res.data.response_data));
       })
@@ -49,10 +50,9 @@ class Login extends React.Component {
     const tailLayout = { wrapperCol: { offset: 6, span: 16 } };
     return (
       <div>
-       
         <Row justify="center" align="top" style={{ paddingTop: "100px" }}>
           {/* <Col span={3}>
-        
+            
           </Col> */}
           <Col span={8}>
             <Form
