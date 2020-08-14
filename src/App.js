@@ -1,14 +1,9 @@
 import React from 'react'
-import LoginPage from './Component/LoginPage'
-import SignupPage from './Component/SignupPage'
-import ChangePasswordPage from './Component/ChangePasswordPage'
-import AdminPage from './Component/AdminPage'
-import navbar from './Component/nav'
-import ImportFIleReward from './Component/ImportFIleReward'
-import ImportFIleCustomer from './Component/ImportFileCustomer'
+import Login from './views/Login'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Admin from './views/Admin' 
 import 'antd/dist/antd.css'
-import './Style/App.css'
+import './App.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,11 +14,10 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path="/login" exact={true} component={LoginPage} />
-          <Route path="/signup" component={SignupPage} />
-          <Route path="/changepassword" component={ChangePasswordPage} />
-          <Route path="*" component={ImportFIleReward} />
-          <Route path="/ImportFIleCustomer" component={ImportFIleCustomer} />
+          <Route path="/login" exact={true} component={Login}/>
+          <Route path="/login/signup" exact={true} component={Login}/>
+          <Route path="/admin/reward" exact={true} component={Admin}/>
+          <Route path="/admin/customer" exact={true} component={Admin}/>
         </Switch>
       </Router>
     )
