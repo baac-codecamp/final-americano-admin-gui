@@ -30,7 +30,7 @@ const viewList = [
   render() {
     const foundView = viewList.find(el => el.pathname === this.props.history.location.pathname)
     return (
-      <div className="login-layout">
+      <div className="bg">
         <Row className="login-main" justify="center" align="middle">
           <Col span={10} >
             <Card className="login-card" title="Salak Admin Panel" bordered={false}>

@@ -51,12 +51,14 @@ export default class ImportRewardFileComponent extends Component {
       // axios post Data to api
        
       _axios.post(`https://americano-salak-api.topwork.asia/admin/insertDataCustomer`, { listDataCustomer: wsData })
-        // .then((res) => {
-        //   this.setAlert(res.data.alertMessage, 'success')
-        // })
-        // .catch((error) => {
-        //   this.setAlert(error.data.alertMessage, 'error')
-        // })
+      .then((res) => {
+        //alert("Success, Upload File")
+        this.setAlert(res.data.response_message, 'success')
+        window.location.replace('/admin/customer')
+      })
+      .catch((error) => {
+        this.setAlert(error.response.data.response_message, 'error')
+      })
     }
 
   }
@@ -74,8 +76,8 @@ export default class ImportRewardFileComponent extends Component {
     return (
 
       <div style={{ margin: '-20px 0px' }}>
-        <h2>Import Customer</h2>
-        <input type="file" id="file" onChange={this.handleChange} />
+        <h2>Import Customer File</h2>
+        <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
         <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
         {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
       </div>

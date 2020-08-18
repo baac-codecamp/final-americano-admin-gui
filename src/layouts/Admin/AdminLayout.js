@@ -1,15 +1,14 @@
-import { Button, Layout, Menu, Breadcrumb } from 'antd';
-import { FileAddOutlined, UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { Button, Layout, Menu } from 'antd';
+import { FileAddOutlined, UserOutlined} from '@ant-design/icons';
 import './AdminLayout.css'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import ImportRewardFileComponent from '../../Component/ImportRewardFileComponent'
 import ImportCusFileComponent from '../../Component/ImportCusFileComponent'
-import { GetName } from '../../utils/helpers'
-
+const user = JSON.parse(localStorage.getItem("user"));
 const { Header, Sider, Content } = Layout;
-const { SubMenu } = Menu;
+
 const viewList = [
   {
     pathname: "/admin/reward",
@@ -25,21 +24,16 @@ class AdminLayout extends Component {
   state = {
     collapsed: false,
   };
-  componentDidMount() {
-    this.setState({
-      fullName: GetName(),
-    });
-  }
+ 
   render() {
     const foundView = viewList.find(el => el.pathname === this.props.history.location.pathname)
-    console.log(GetName())
     return (
       <Layout>
-        <Header className="header">
+        <Header style={{height:"85px"}}>
           <div className="logo" />
-          <Menu className="set-position-button" theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item key="1"  icon={<UserOutlined />}>{this.state.fullName}</Menu.Item>
-            <Button className="set-position-button" shape="round" >
+          <Menu  className="set-position-button" theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+            <Menu.Item  key="1"  icon={<UserOutlined />}>{user.fullname}</Menu.Item>
+            <Button  shape="round" style={{marginTop:"30px"}}>
               <Link to="/login">
                 Logout
                   </Link>

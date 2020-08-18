@@ -1,11 +1,4 @@
-.login-layout {
-  background-image: url("../../assets/images/bg4.jpg");
-  background-repeat: no-repeat;
-  background-size:1300px 700px;
 
-  /* background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
-}
 
 .login-main {
   height: 100vh;
@@ -18,4 +11,17 @@
 }
 .ant-card-head-title {
   text-align: center;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../../assets/images/bg4.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

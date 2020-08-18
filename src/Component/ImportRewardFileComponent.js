@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import XLSX from 'xlsx'
 import _axios from 'axios'
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
-import { Form, Input, Button, Row, Col, Alert } from "antd";
+import { Button,  Alert } from "antd";
 
 export default class ImportRewardFileComponent extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ export default class ImportRewardFileComponent extends Component {
     }
   }
 
-  
+
   uploadData(e) {
     console.log(this.state.file)
     //check file ?
@@ -46,14 +45,16 @@ export default class ImportRewardFileComponent extends Component {
       const wsData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       console.log(wsData)
       // axios post Data to api
-       
+
       _axios.post(`https://americano-salak-api.topwork.asia/admin/insertDataReward`, { listDataReward: wsData })
-        // .then((res) => {
-        //   this.setAlert(res.data.alertMessage, 'success')
-        // })
-        // .catch((error) => {
-        //   this.setAlert(error.data.alertMessage, 'error')
-        // })
+      .then((res) => {
+        //alert("Success, Upload File")
+        this.setAlert(res.data.response_message, 'success')
+        window.location.replace('/admin/reward')
+      })
+      .catch((error) => {
+        this.setAlert(error.response.data.response_message, 'error')
+      })
     }
 
   }
@@ -72,10 +73,11 @@ export default class ImportRewardFileComponent extends Component {
 
       <div style={{ margin: '-20px 0px' }}>
         <h2>Import Reward File</h2>
-        <input type="file" id="file" onChange={this.handleChange} />
+        <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
         <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
         {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
       </div>
+      
     )
   }
 }
