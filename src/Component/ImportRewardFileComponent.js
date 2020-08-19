@@ -36,6 +36,11 @@ export default class ImportRewardFileComponent extends Component {
       return
     }
 
+    if(!this.state.file.name.includes("reward")){
+      alert('กรุณาเลือกเฉพาะชื่อไฟล์ Reward')
+      return
+    }
+
     const currFile = this.state.file
     const reader = new FileReader()
     reader.readAsBinaryString(currFile)
@@ -58,12 +63,12 @@ export default class ImportRewardFileComponent extends Component {
           headers: currHeader
         })
         .then((res) => {
-          //alert("Success, Upload File")
+          alert("Upload Successed")
           this.setAlert(res.data.response_message, 'success')
           window.location.replace('/admin/reward')
         })
         .catch((error) => {
-          this.setAlert(error.response.data.response_message, 'error')
+          alert("Upload Failed")
         })
     }
 

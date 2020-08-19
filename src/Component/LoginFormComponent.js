@@ -59,7 +59,7 @@ class LoginFormComponent extends Component {
                 <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
                     <Input.Password placeholder="Password" prefix={<EditOutlined />} />
                 </Form.Item>
-                <Form.Item {...tailLayout}>
+                <Form.Item {...tailLayout} style={{ margin:'0px -20px '  }} >
                     <Button type="primary" htmlType="submit" shape="round" style={{ margin: '0px 20px' }}>
                         Login
                   </Button>

@@ -30,13 +30,18 @@ export default class ImportRewardFileComponent extends Component {
     }
   }
 
-  
+
   uploadData(e) {
     console.log(this.state.file)
     //check file ?
     console.log(this.state.file)
     if (!this.state.file.name) {
       alert('กรุณาเลือกไฟล์')
+      return
+    }
+
+    if(!this.state.file.name.includes("customer")){
+      alert('กรุณาเลือกเฉพาะชื่อไฟล์ Customer')
       return
     }
 
@@ -49,38 +54,48 @@ export default class ImportRewardFileComponent extends Component {
       const wsData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       console.log(wsData)
       // axios post Data to api
-       
-      _axios.post(`https://americano-salak-api.topwork.asia/admin/insertDataCustomer`, { listDataCustomer: wsData })
-      .then((res) => {
-        //alert("Success, Upload File")
-        this.setAlert(res.data.response_message, 'success')
-        window.location.replace('/admin/customer')
-      })
-      .catch((error) => {
-        this.setAlert(error.response.data.response_message, 'error')
-      })
-    }
+      const user = JSON.parse(localStorage.getItem("user"));
+      console.log(user)
 
+      const currHeader = {
+        'Authorization': 'Bearer ' + user.token,
+        'Content-Type': 'application/json'
+      }
+
+      console.log(currHeader)
+      _axios.post(`https://americano-salak-api.topwork.asia/admin/auth/insertDataCustomer`, { listDataCustomer: wsData }
+        , { headers: currHeader })
+          .then((res) => {
+            alert("Upload Successed")
+            this.setAlert(res.data.response_message, 'success')
+            window.location.replace('/admin/customer')
+          })
+          .catch((error) => {
+            alert("Upload Failed")
+          })
+    
   }
 
-  setAlert = (message, type) => {
-    this.setState({
-      alertMessage: message,
-      alertType: type,
-    })
-  }
+}
+
+setAlert = (message, type) => {
+  this.setState({
+    alertMessage: message,
+    alertType: type,
+  })
+}
 
 
-  render() {
+render() {
 
-    return (
+  return (
 
-      <div style={{ margin: '-20px 0px' }}>
-        <h2>Import Customer File</h2>
-        <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
-        <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
-        {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
-      </div>
-    )
-  }
+    <div style={{ margin: '-20px 0px' }}>
+      <h2>Import Customer File</h2>
+      <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
+      <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
+      {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
+    </div>
+  )
+}
 }

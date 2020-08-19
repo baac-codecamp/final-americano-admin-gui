@@ -108,7 +108,7 @@ class SignupFormComponent extends Component {
                 </Form.Item>
 
 
-                <div class ="container">
+                <div style={{ margin:'0px 130px '  }} >
                     <Button type="primary" htmlType="submit" style={{ margin:'20px 20px '  }} shape="round">
                         Sign Up
                     </Button>
