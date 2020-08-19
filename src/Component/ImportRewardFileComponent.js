@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import XLSX from 'xlsx'
 import _axios from 'axios'
-import { Button,  Alert } from "antd";
+import { Button, Alert } from "antd";
 
 export default class ImportRewardFileComponent extends Component {
   constructor(props) {
@@ -45,16 +45,26 @@ export default class ImportRewardFileComponent extends Component {
       const wsData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       console.log(wsData)
       // axios post Data to api
+      const user = JSON.parse( localStorage.getItem("user"));
+      console.log(user)
 
-      _axios.post(`https://americano-salak-api.topwork.asia/admin/insertDataReward`, { listDataReward: wsData })
-      .then((res) => {
-        //alert("Success, Upload File")
-        this.setAlert(res.data.response_message, 'success')
-        window.location.replace('/admin/reward')
-      })
-      .catch((error) => {
-        this.setAlert(error.response.data.response_message, 'error')
-      })
+      const currHeader = { 'Authorization': 'Bearer ' + user.token,
+      'Content-Type': 'application/json'}
+
+      console.log(currHeader)
+
+      _axios.post(`https://americano-salak-api.topwork.asia/admin/auth/insertDataReward`, { listDataReward: wsData }
+        , {
+          headers: currHeader
+        })
+        .then((res) => {
+          //alert("Success, Upload File")
+          this.setAlert(res.data.response_message, 'success')
+          window.location.replace('/admin/reward')
+        })
+        .catch((error) => {
+          this.setAlert(error.response.data.response_message, 'error')
+        })
     }
 
   }
@@ -77,7 +87,7 @@ export default class ImportRewardFileComponent extends Component {
         <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
         {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
       </div>
-      
+
     )
   }
 }

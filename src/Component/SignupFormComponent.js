@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Form, Input, Button, Row, Col, Alert } from "antd";
 import { Link } from 'react-router-dom';
+const token = localStorage.getItem("user");
 
 class SignupFormComponent extends Component {
 
@@ -10,7 +11,7 @@ class SignupFormComponent extends Component {
         this.state = {
             alertMessage: "",
             alertType: "",
-        };
+        };  
     }
 
     onFinish = async (values) => {
@@ -20,9 +21,10 @@ class SignupFormComponent extends Component {
             //   password: btoa(values.password),
             fullname: values.fullname,
         };
-
+        
         let data = await axios
             .post(`https://americano-salak-api.topwork.asia/admin/signup`, user)
+            
             .then((res) => {
                 this.setAlert(res.data.response_message, "success");
                 window.location.replace("/login");

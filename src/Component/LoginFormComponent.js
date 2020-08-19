@@ -3,6 +3,7 @@ import { Form, Input, Button, Alert } from 'antd'
 import { Link } from 'react-router-dom';
 import _axios from 'axios'
 import { UserOutlined, EditOutlined } from '@ant-design/icons';
+const token = localStorage.getItem("user");
 const URL_API = 'http://localhost:9442'
 const layout = {
     labelCol: { span: 6 },
