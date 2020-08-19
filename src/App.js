@@ -18,6 +18,7 @@ class App extends React.Component {
           <Route path="/login/signup" exact={true} component={Login}/>
           <Route path="/admin/reward" exact={true} component={Admin}/>
           <Route path="/admin/customer" exact={true} component={Admin}/>
+          <Route path="/admin/news" exact={true} component={Admin}/>
         </Switch>
       </Router>
     )

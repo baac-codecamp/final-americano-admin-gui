@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import ImportRewardFileComponent from '../../Component/ImportRewardFileComponent'
 import ImportCusFileComponent from '../../Component/ImportCusFileComponent'
+import ImportNewsComponent from '../../Component/ImportNewsComponent'
 const user = JSON.parse(localStorage.getItem("user"));
 const { Header, Sider, Content } = Layout;
 
@@ -17,6 +18,10 @@ const viewList = [
   {
     pathname: "/admin/customer",
     component: <ImportCusFileComponent></ImportCusFileComponent>
+  },
+  {
+    pathname: "/admin/news",
+    component: <ImportNewsComponent></ImportNewsComponent>
   }
 ]
 
@@ -30,7 +35,7 @@ class AdminLayout extends Component {
     return (
       <Layout>
         <Header style={{height:"85px"}}>
-          <div className="logo" />
+          <div className="bg" />
           <Menu  className="set-position-button" theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item  key="1"  icon={<UserOutlined />}>{user.fullname}</Menu.Item>
             <Button  shape="round" style={{marginTop:"30px"}}>
@@ -51,6 +56,7 @@ class AdminLayout extends Component {
             >
               <Menu.Item> <FileAddOutlined /><Link to="/admin/reward">Import Reward File</Link></Menu.Item>
               <Menu.Item> <FileAddOutlined /><Link to="/admin/customer">Import Customer File</Link></Menu.Item>
+              <Menu.Item> <FileAddOutlined /><Link to="/admin/news">Import News</Link></Menu.Item>
             </Menu>
           </Sider>
           <Layout style={{ padding: '10px 10px 10px' }}>

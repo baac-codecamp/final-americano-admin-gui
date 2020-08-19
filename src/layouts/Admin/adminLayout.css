@@ -4,7 +4,7 @@
   background: rgba(255, 255, 255, 0.2);
   margin: 0px;
   float: left;
-  background:url(../../assets/images/logo1.png) 
+  /* background:url(../../assets/images/logo1.png)  */
 }
 
 .site-layout-background {
@@ -14,3 +14,12 @@
 .set-position-button{
   float: right;
 }
+
+.bg{
+  float: left;
+  background-image: url(../../assets/images/logo1.png);
+  background-size: 400px;
+  width: 400px;
+  height: 80px;
+  margin: 10px -50px;
+} 
