@@ -1,16 +1,16 @@
 # Admin Salak GUI
-#### เป็น UI สำหรับ Admin เพื่อ Import ข้อมูลผลรางวัลสลากธกส. และข้อมูลลูกค้า
+#### คือ UI สำหรับ Admin เพื่อ Import ข้อมูลผลรางวัลสลากธกส. และข้อมูลลูกค้า
 
-## Built With
-*
-*
-*
 ## Feature
-*
-*
+* Login Page
+* Signup Page
+* Import Reward file
+* Import Customer File
 
 ## How to use
-*
-> ...
-*
->...
+1. Clone Project
+> git clone https://github.com/baac-codecamp/final-americano-gui.git
+2. Install Dependency Package
+> npm install
+3. Run project by command'
+> npm start
