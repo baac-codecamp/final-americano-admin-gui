@@ -1,9 +1,10 @@
 .logo {
-  width: 120px;
-  height: 31px;
+  width: 450px;
+  height: 75px;
   background: rgba(255, 255, 255, 0.2);
-  margin: 16px 28px 16px 0;
+  margin: 0px;
   float: left;
+  background:url(../../assets/images/logo1.png) 
 }
 
 .site-layout-background {
@@ -12,5 +13,4 @@
 
 .set-position-button{
   float: right;
-  margin-top: 15px;
 }
