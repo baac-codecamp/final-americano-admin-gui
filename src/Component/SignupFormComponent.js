@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { Form, Input, Button, Row, Col, Alert } from "antd";
+import { Form, Input, Button, Alert } from "antd";
 import { Link } from 'react-router-dom';
-const token = localStorage.getItem("user");
 
 class SignupFormComponent extends Component {
 
@@ -11,7 +10,7 @@ class SignupFormComponent extends Component {
         this.state = {
             alertMessage: "",
             alertType: "",
-        };  
+        };
     }
 
     onFinish = async (values) => {
@@ -21,10 +20,10 @@ class SignupFormComponent extends Component {
             //   password: btoa(values.password),
             fullname: values.fullname,
         };
-        
-        let data = await axios
+
+        await axios
             .post(`https://americano-salak-api.topwork.asia/admin/signup`, user)
-            
+
             .then((res) => {
                 this.setAlert(res.data.response_message, "success");
                 window.location.replace("/login");
@@ -108,8 +107,8 @@ class SignupFormComponent extends Component {
                 </Form.Item>
 
 
-                <div style={{ margin:'0px 130px '  }} >
-                    <Button type="primary" htmlType="submit" style={{ margin:'20px 20px '  }} shape="round">
+                <div style={{ margin: '0px 130px ' }} >
+                    <Button type="primary" htmlType="submit" style={{ margin: '20px 20px ' }} shape="round">
                         Sign Up
                     </Button>
                     <Button shape="round">
@@ -125,7 +124,7 @@ class SignupFormComponent extends Component {
                         />
                     )}
                 </div>
-                        
+
             </Form >
 
         );

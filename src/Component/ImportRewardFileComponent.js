@@ -36,7 +36,7 @@ export default class ImportRewardFileComponent extends Component {
       return
     }
 
-    if(!this.state.file.name.includes("reward")){
+    if (!this.state.file.name.includes("reward")) {
       alert('กรุณาเลือกเฉพาะชื่อไฟล์ Reward')
       return
     }
@@ -50,11 +50,13 @@ export default class ImportRewardFileComponent extends Component {
       const wsData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       console.log(wsData)
       // axios post Data to api
-      const user = JSON.parse( localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem("user"));
       console.log(user)
 
-      const currHeader = { 'Authorization': 'Bearer ' + user.token,
-      'Content-Type': 'application/json'}
+      const currHeader = {
+        'Authorization': 'Bearer ' + user.token,
+        'Content-Type': 'application/json'
+      }
 
       console.log(currHeader)
 

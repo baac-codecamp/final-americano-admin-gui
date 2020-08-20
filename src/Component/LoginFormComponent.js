@@ -3,8 +3,7 @@ import { Form, Input, Button, Alert } from 'antd'
 import { Link } from 'react-router-dom';
 import _axios from 'axios'
 import { UserOutlined, EditOutlined } from '@ant-design/icons';
-const token = localStorage.getItem("user");
-const URL_API = 'http://localhost:9442'
+
 const layout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 16 },
@@ -22,12 +21,12 @@ class LoginFormComponent extends Component {
         }
     }
     onFinish = async (values) => {
-            const user = {
-              username: values.username,
-              password: values.password,
-              //   password: btoa(values.password),
-            }
-        let data = await _axios
+        const user = {
+            username: values.username,
+            password: values.password,
+            //   password: btoa(values.password),
+        }
+        await _axios
             .post(`https://americano-salak-api.topwork.asia/admin/login`, user)
             .then((res) => {
                 this.setAlert(res.data.response_message, 'success')
@@ -59,7 +58,7 @@ class LoginFormComponent extends Component {
                 <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
                     <Input.Password placeholder="Password" prefix={<EditOutlined />} />
                 </Form.Item>
-                <Form.Item {...tailLayout} style={{ margin:'0px -20px '  }} >
+                <Form.Item {...tailLayout} style={{ margin: '0px -20px ' }} >
                     <Button type="primary" htmlType="submit" shape="round" style={{ margin: '0px 20px' }}>
                         Login
                   </Button>

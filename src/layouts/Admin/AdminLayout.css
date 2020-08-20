@@ -1,10 +1,11 @@
 .logo {
-  width: 450px;
-  height: 75px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 0px;
+
+  /* background: rgba(255, 255, 255, 0.2); */
+  margin: 0px -50px;
   float: left;
-  background:url(../../assets/images/logo1.png) 
+  background:url(../../assets/images/logo1.png) ;
+  width: 430px;
+  height: 75px;
 }
 
 .site-layout-background {

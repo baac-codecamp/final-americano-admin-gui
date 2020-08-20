@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import XLSX from 'xlsx'
 import _axios from 'axios'
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
-import { Form, Input, Button, Row, Col, Alert } from "antd";
-const URL_API = 'https://americano-salak-api.topwork.asia'
+import {  Button, Alert } from "antd";
 
 
-
-export default class ImportRewardFileComponent extends Component {
+export default class ImportCusFileComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,9 +19,9 @@ export default class ImportRewardFileComponent extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
+  handleChange(nameFile) {
     console.log(this.state)
-    const files = e.target.files
+    const files = nameFile.target.files
     if (files && files[0]) {
       this.setState({ file: files[0] })
     }

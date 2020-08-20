@@ -1,5 +1,5 @@
 import { Button, Layout, Menu } from 'antd';
-import { FileAddOutlined, UserOutlined} from '@ant-design/icons';
+import { FileAddOutlined, UserOutlined } from '@ant-design/icons';
 import './AdminLayout.css'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import ImportRewardFileComponent from '../../Component/ImportRewardFileComponent
 import ImportCusFileComponent from '../../Component/ImportCusFileComponent'
 const user = JSON.parse(localStorage.getItem("user"));
 const { Header, Sider, Content } = Layout;
+
 
 const viewList = [
   {
@@ -24,16 +25,16 @@ class AdminLayout extends Component {
   state = {
     collapsed: false,
   };
- 
+
   render() {
     const foundView = viewList.find(el => el.pathname === this.props.history.location.pathname)
     return (
       <Layout>
-        <Header style={{height:"85px"}}>
+        <Header style={{ height: "85px" }}>
           <div className="logo" />
-          <Menu  className="set-position-button" theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item  key="1"  icon={<UserOutlined />}>{user.fullname}</Menu.Item>
-            <Button  shape="round" style={{marginTop:"30px"}}>
+          <Menu className="set-position-button" theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+            <Menu.Item key="1" icon={<UserOutlined />}>{user.fullname}</Menu.Item>
+            <Button shape="round" style={{ marginTop: "30px" }}>
               <Link to="/login">
                 Logout
                   </Link>
