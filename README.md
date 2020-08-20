@@ -6,6 +6,8 @@
 * Signup Page
 * Import Reward file
 * Import Customer File
+* Import News
+
 
 ## How to use
 1. Clone Project
