@@ -44,8 +44,8 @@ export default class ImportRewardFileComponent extends Component {
     const currFile = this.state.file
     const reader = new FileReader()
     reader.readAsBinaryString(currFile)
-    reader.onload = (e) => {
-      const bStr = e.target.result
+    reader.onload = (exlsx) => {
+      const bStr = exlsx.target.result
       const wb = XLSX.read(bStr, { type: 'binary' })
       const wsData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       console.log(wsData)
