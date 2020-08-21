@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import XLSX from 'xlsx'
 import _axios from 'axios'
-import {  Button, Alert } from "antd";
+import { Button, Alert } from "antd";
 
 
 export default class ImportCusFileComponent extends Component {
@@ -27,7 +27,6 @@ export default class ImportCusFileComponent extends Component {
     }
   }
 
-
   uploadData(e) {
     console.log(this.state.file)
     //check file ?
@@ -37,7 +36,7 @@ export default class ImportCusFileComponent extends Component {
       return
     }
 
-    if(!this.state.file.name.includes("customer")){
+    if (!this.state.file.name.includes("customer")) {
       alert('กรุณาเลือกเฉพาะชื่อไฟล์ Customer')
       return
     }
@@ -62,37 +61,37 @@ export default class ImportCusFileComponent extends Component {
       console.log(currHeader)
       _axios.post(`https://americano-salak-api.topwork.asia/admin/auth/insertDataCustomer`, { listDataCustomer: wsData }
         , { headers: currHeader })
-          .then((res) => {
-            alert("Upload Successed")
-            this.setAlert(res.data.response_message, 'success')
-            window.location.replace('/admin/customer')
-          })
-          .catch((error) => {
-            alert("Upload Failed")
-          })
-    
+        .then((res) => {
+          alert("Upload Successed")
+          this.setAlert(res.data.response_message, 'success')
+          window.location.replace('/admin/customer')
+        })
+        .catch((error) => {
+          alert("Upload Failed")
+        })
+
+    }
+
   }
 
-}
-
-setAlert = (message, type) => {
-  this.setState({
-    alertMessage: message,
-    alertType: type,
-  })
-}
+  setAlert = (message, type) => {
+    this.setState({
+      alertMessage: message,
+      alertType: type,
+    })
+  }
 
 
-render() {
+  render() {
 
-  return (
+    return (
 
-    <div style={{ margin: '-20px 0px' }}>
-      <h2>Import Customer File</h2>
-      <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
-      <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
-      {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
-    </div>
-  )
-}
+      <div style={{ margin: '-20px 0px' }}>
+        <h2>Import Customer File</h2>
+        <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
+        <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
+        {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
+      </div>
+    )
+  }
 }

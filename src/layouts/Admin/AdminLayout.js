@@ -1,4 +1,4 @@
-import { Button, Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import { FileAddOutlined, UserOutlined } from '@ant-design/icons';
 import './AdminLayout.css'
 import React, { Component } from 'react'
@@ -32,15 +32,10 @@ class AdminLayout extends Component {
       <Layout>
         <Header style={{ height: "85px" }}>
           <div className="logo" />
-          <Menu className="set-position-button" theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+          <Menu className="set-position-button" theme="dark" mode="horizontal">
             <Menu.Item key="1" icon={<UserOutlined />}>{user.fullname}</Menu.Item>
-            <Button shape="round" style={{ marginTop: "30px" }}>
-              <Link to="/login">
-                Logout
-                  </Link>
-            </Button>
+            <Menu.Item key="2" style={{ marginTop: "10px" }}><Link to="/login">Logout</Link></Menu.Item>
           </Menu>
-
         </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">

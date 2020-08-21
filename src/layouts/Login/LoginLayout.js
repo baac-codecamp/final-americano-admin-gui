@@ -32,5 +32,4 @@ class loginLayout extends Component {
     )
   }
 }
-
 export default withRouter(loginLayout)

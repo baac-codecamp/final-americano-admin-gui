@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, Alert } from 'antd'
+import { Form, Input, Alert,Button } from 'antd'
 import { Link } from 'react-router-dom';
 import _axios from 'axios'
 import { UserOutlined, EditOutlined } from '@ant-design/icons';
@@ -14,12 +14,14 @@ const tailLayout = {
 
 class LoginFormComponent extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
-            alertMessage: '',
-            alertType: '',
-        }
+            alertMessage: "",
+            alertType: "",
+        };
     }
+
+
     onFinish = async (values) => {
         const user = {
             username: values.username,
@@ -51,27 +53,30 @@ class LoginFormComponent extends Component {
     }
     render() {
         return (
-            <Form {...layout} name="basic" initialValues={{ remember: true }} style={{ margin: 35 }} onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
-                <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
-                    <Input placeholder="Username" prefix={<UserOutlined />} />
-                </Form.Item>
-                <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-                    <Input.Password placeholder="Password" prefix={<EditOutlined />} />
-                </Form.Item>
-                <Form.Item {...tailLayout} style={{ margin: '0px -20px ' }} >
-                    <Button type="primary" htmlType="submit" shape="round" style={{ margin: '0px 20px' }}>
-                        Login
-                  </Button>
-                    <Button shape="round" >
-                        <Link to="/login/signup">Signup</Link>
+            <div>
+                <Form {...layout} name="basic" initialValues={{ remember: true }} style={{ margin: 35 }} onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
+                    <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+                        <Input placeholder="Username" prefix={<UserOutlined />} />
+                    </Form.Item>
+                    <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
+                        <Input.Password placeholder="Password" prefix={<EditOutlined />} />
+                    </Form.Item>
+                    <Form.Item {...tailLayout} style={{ margin: '0px -20px ' }} >
+                        <Button type="primary" htmlType="submit" shape="round" style={{ margin: '0px 20px' }}>
+                            Login
                     </Button>
-                </Form.Item>
-                <div>
-                    {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
-                </div>
-            </Form>
+                        <Button shape="round" >
+                            <Link to="/login/signup">Signup</Link>
+                        </Button>
 
+                    </Form.Item>
+                    <div>
+                        {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
+                    </div>
+                </Form>
+            </div>
         )
     }
 }
+
 export default LoginFormComponent;
