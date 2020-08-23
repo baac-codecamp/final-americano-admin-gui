@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from './views/Login'
-import { Redirect } from 'react-router';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Admin from './views/Admin'
 import 'antd/dist/antd.css'
 import './App.css'
@@ -12,7 +12,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router>
+      <Router basename="/sub1">
         <Switch>
           {/* <Redirect from='/' to="/login" /> */}
           <Route path="/login" exact={true} component={Login} />
@@ -20,7 +20,7 @@ class App extends React.Component {
           <Route path="/admin/reward" exact={true} component={Admin} />
           <Route path="/admin/customer" exact={true} component={Admin} />
           <Route path="/admin/news" exact={true} component={Admin} />
-          <Redirect from="*" to={"/login"} />
+          <Redirect from="*" to={'/login'} />
         </Switch>
       </Router>
     )

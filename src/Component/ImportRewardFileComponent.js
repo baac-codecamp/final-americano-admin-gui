@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import XLSX from 'xlsx'
 import _axios from 'axios'
-import { Button, Alert } from "antd";
+import { Button, Alert } from 'antd'
 
 export default class ImportRewardFileComponent extends Component {
   constructor(props) {
@@ -26,7 +26,6 @@ export default class ImportRewardFileComponent extends Component {
     }
   }
 
-
   uploadData(e) {
     console.log(this.state.file)
     //check file ?
@@ -36,7 +35,7 @@ export default class ImportRewardFileComponent extends Component {
       return
     }
 
-    if (!this.state.file.name.includes("reward")) {
+    if (!this.state.file.name.includes('reward')) {
       alert('กรุณาเลือกเฉพาะชื่อไฟล์ Reward')
       return
     }
@@ -50,30 +49,33 @@ export default class ImportRewardFileComponent extends Component {
       const wsData = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])
       console.log(wsData)
       // axios post Data to api
-      const user = JSON.parse(localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem('user'))
       console.log(user)
 
       const currHeader = {
-        'Authorization': 'Bearer ' + user.token,
-        'Content-Type': 'application/json'
+        Authorization: 'Bearer ' + user.token,
+        'Content-Type': 'application/json',
       }
 
       console.log(currHeader)
 
-      _axios.post(`https://americano-salak-api.topwork.asia/admin/auth/insertDataReward`, { listDataReward: wsData }
-        , {
-          headers: currHeader
-        })
+      _axios
+        .post(
+          `https://americano-salak-api.topwork.asia/admin/auth/insertDataReward`,
+          { listDataReward: wsData },
+          {
+            headers: currHeader,
+          }
+        )
         .then((res) => {
-          alert("Upload Successed")
+          alert('Upload Successed')
           this.setAlert(res.data.response_message, 'success')
-          window.location.replace('/admin/reward')
+          window.location.replace('/sub1/admin/reward')
         })
         .catch((error) => {
-          alert("Upload Failed")
+          alert('Upload Failed')
         })
     }
-
   }
 
   setAlert = (message, type) => {
@@ -83,18 +85,16 @@ export default class ImportRewardFileComponent extends Component {
     })
   }
 
-
   render() {
-
     return (
-
       <div style={{ margin: '-20px 0px' }}>
         <h2>Import Reward File</h2>
         <input type="file" id="file" accept=".xlsx" onChange={this.handleChange} />
-        <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>Upload File</Button>
+        <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>
+          Upload File
+        </Button>
         {this.state.alertMessage !== '' && <Alert message={this.state.alertMessage} type={this.state.alertType} showIcon />}
       </div>
-
     )
   }
 }
