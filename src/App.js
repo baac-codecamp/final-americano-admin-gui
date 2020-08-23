@@ -12,7 +12,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router basename="/sub1">
+      <Router>
         <Switch>
           {/* <Redirect from='/' to="/login" /> */}
           <Route path="/login" exact={true} component={Login} />

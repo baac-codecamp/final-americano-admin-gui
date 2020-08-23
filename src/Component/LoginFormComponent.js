@@ -31,7 +31,7 @@ class LoginFormComponent extends Component {
       .post(`https://americano-salak-api.topwork.asia/admin/login`, user)
       .then((res) => {
         this.setAlert(res.data.response_message, 'success')
-        window.location.replace('/sub1/admin/reward')
+        window.location.replace('/admin/reward')
         console.log(res.data.response_data)
         localStorage.setItem('user', JSON.stringify(res.data.response_data))
       })

@@ -63,7 +63,7 @@ export default class ImportCusFileComponent extends Component {
         .then((res) => {
           alert('Upload Successed')
           this.setAlert(res.data.response_message, 'success')
-          window.location.replace('/sub1/admin/customer')
+          window.location.replace('/admin/customer')
         })
         .catch((error) => {
           alert('Upload Failed')

@@ -25,7 +25,7 @@ class SignupFormComponent extends Component {
 
       .then((res) => {
         this.setAlert(res.data.response_message, 'success')
-        window.location.replace('/sub1/login')
+        window.location.replace('/login')
       })
       .catch((error) => {
         this.setAlert(error.response.data.response_message, 'error')

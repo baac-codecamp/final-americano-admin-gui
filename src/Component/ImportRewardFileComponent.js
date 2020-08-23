@@ -70,7 +70,7 @@ export default class ImportRewardFileComponent extends Component {
         .then((res) => {
           alert('Upload Successed')
           this.setAlert(res.data.response_message, 'success')
-          window.location.replace('/sub1/admin/reward')
+          window.location.replace('/admin/reward')
         })
         .catch((error) => {
           alert('Upload Failed')
