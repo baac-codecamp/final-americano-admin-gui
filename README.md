@@ -14,5 +14,5 @@
 > git clone https://github.com/baac-codecamp/final-americano-gui.git
 2. Install Dependency Package
 > npm install
-3. Run project by command'
+3. Run project by command
 > npm start
