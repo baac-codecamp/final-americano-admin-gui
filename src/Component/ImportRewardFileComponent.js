@@ -125,8 +125,8 @@ export default class ImportRewardFileComponent extends Component {
           <Button type="primary" value="Upload Data" shape="round" onClick={this.uploadData}>
             Upload File
         </Button>
-        <br/>
         <hr/>
+        <br/>
         <Table  columns={columns} dataSource={this.state.wsData}  pagination={{ pageSize: 8 }}/>
         </div>
       )
