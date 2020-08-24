@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, Table, Tag, Space } from 'antd'
+import { Modal, Button, Table, } from 'antd'
 import CreateNews from './CreateNews'
 import { connect } from 'react-redux'
 import { clearTempNews } from '../actions'
